@@ -40,7 +40,7 @@ a:active {
 
 .hero-img-container {
     align-self: center;
-    width: 25%;
+    width: 25vw;
 }
 
 #hello > .content {
@@ -68,7 +68,7 @@ main {
 
 .project {
     background-color: antiquewhite;
-    max-width: 300px;
+    max-width: 400px;
     padding: 2em;
     margin: 1em;
     width: 100%,
@@ -108,6 +108,16 @@ main {
 
     #hello > .content {
         padding: 0.3em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #projects {
+        max-width: 100%;
+    }
+
+    .project {
+        max-width: 100%;
     }
 }
 

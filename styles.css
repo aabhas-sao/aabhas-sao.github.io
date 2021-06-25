@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .portfolio-img {
-    max-width: 300px;
+    width: 100%;
 }
 
 #projects {
@@ -19,7 +20,19 @@
 
 .project {
     background-color: antiquewhite;
+    max-width: 300px;
     padding: 2em;
-    margin: 0 2em 2em 0;
+    margin: 1em;
     width: 100%,
+}
+
+.title {
+    margin: 0.6em 0.3em 0.3em 0.3em;
+    font-weight: 500;
+}
+
+.caption {
+    margin: 0.6em 0.3em 0.3em 0.3em;
+    font-weight: 400;
+    color: #434343;
 }

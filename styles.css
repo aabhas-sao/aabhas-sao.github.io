@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.portfolio-img {
+    max-width: 300px;
+}
+
+#projects {
+    display: flex;
+    max-width: 70vw;
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project {
+    background-color: antiquewhite;
+    padding: 2em;
+    margin: 0 2em 2em 0;
+    width: 100%,
+}

@@ -5,6 +5,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     list-style-type: none;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 
 nav {
@@ -35,6 +36,10 @@ a {
     background-color: #f0f0f0;
 }
 
+.content {
+    padding: 0.6em;
+}
+
 .primary-text {
     color:rgb(241, 117, 117);
 }
@@ -44,7 +49,19 @@ a {
     background-color: rgb(241, 117, 117);
 }
 
+.title2 {
+    font-size: 3.2em;
+    margin-bottom: 1.2em;
+}
+
+header {
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+}
+
 #hello {
+    flex-grow: 1;
     margin-top: 3em;
     display: flex;
     flex-direction: row;
@@ -78,8 +95,23 @@ a {
     border-radius: 1.2em;
 }
 
+.move-down {
+    font-size: 5em !important;
+    margin-bottom: 1em;
+}
+
+.move-down:hover {
+    background-color: rgb(238, 62, 62);
+    color: #fefefe;
+    border-radius: 50%;
+}
+
 main {
     margin-top: 4em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project-content {
@@ -89,7 +121,7 @@ main {
 #projects {
     display: flex;
     max-width: 70vw;
-    margin: auto;
+    margin: 0 auto auto auto;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
@@ -106,7 +138,7 @@ main {
 .project {
     border-radius: 4%;
     border: 2px solid red;
-    max-width: 350px;
+    max-width: 400px;
     padding: 2em;
     margin: 1em;
 }
@@ -121,6 +153,7 @@ main {
     font-weight: 500;
     color: #434343;
 }
+
 
 .caption {
     margin: 0.6em 0.3em 0.3em 0;
@@ -149,6 +182,28 @@ main {
     #hello > .content {
         padding: 0.3em;
     }
+}
+
+.move-to-top {
+    position: fixed;
+    right: 2em;
+    background-color: rgb(241, 117, 117);
+    color: #fefefe;
+    border-radius: 50%;
+}
+
+.move-to-top:hover {
+    border: 1px solid rgb(241, 117, 117);
+    background-color: #fff;
+    color: #434343;
+}
+
+.move-to-top > a {
+    color: inherit;
+}
+
+.move-to-top > a > span {
+    font-size: 3em;
 }
 
 @media screen and (max-width: 600px) {

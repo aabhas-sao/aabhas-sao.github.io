@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kirito-236/kirito-236.github.io/issues"
   },
-  "homepage": "https://github.com/kirito-236/kirito-236.github.io#readme"
+  "homepage": "https://github.com/kirito-236/kirito-236.github.io#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.11"
+  }
 }

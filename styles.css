@@ -55,7 +55,7 @@ a {
 }
 
 header {
-    height: 77vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
 }
@@ -66,7 +66,6 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    overflow: hidden;
 }
 
 .responsive-img {
@@ -95,15 +94,16 @@ header {
     border-radius: 1.2em;
 }
 
+
 .move-down {
-    font-size: 5em !important;
+    font-size: 4em !important;
+    border-radius: 15%;
     margin-bottom: 1em;
 }
 
 .move-down:hover {
     background-color: rgb(238, 62, 62);
     color: #fefefe;
-    border-radius: 50%;
 }
 
 main {
@@ -187,9 +187,10 @@ main {
 .move-to-top {
     position: fixed;
     right: 2em;
+    bottom: 1em;
+    border-radius: 18%;
     background-color: rgb(241, 117, 117);
     color: #fefefe;
-    border-radius: 50%;
 }
 
 .move-to-top:hover {
@@ -200,10 +201,6 @@ main {
 
 .move-to-top > a {
     color: inherit;
-}
-
-.move-to-top > a > span {
-    font-size: 3em;
 }
 
 @media screen and (max-width: 600px) {
@@ -223,5 +220,11 @@ main {
 @media screen and (min-width: 992px) {
     #hello > .content {
         font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
+    header {
+        height: auto;
     }
 }

@@ -204,6 +204,11 @@ main {
     color: inherit;
 }
 
+footer {
+    height: 40px;
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
     #projects {
         max-width: 100%;

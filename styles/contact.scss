@@ -1,0 +1,63 @@
+@import 'theme';
+#contact {
+    margin-top: 12em;
+    background-color: $primary;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & form {
+        font-size: 1.6em;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: auto;
+
+        label {
+            margin-bottom: 0.9em;
+            padding: 0.3em;
+        }
+        input {
+            color: $secondary-text;
+            font-size: 0.8em;
+            border-radius: 0.6em;
+            padding: 0.5em;
+            height: 60px;
+            margin-bottom: 2em;
+            border: 2px solid $primary;
+            outline: none;
+        }
+
+        textarea {
+            color: $secondary-text;
+            font-size: 0.8em;
+            border-radius: 0.6em;
+            padding: 0.5em;
+            border: 2px solid $primary;
+            outline: none;
+        }
+
+        input:focus {
+            border: none;
+            border: 3px solid $secondary-text;
+        }
+
+        textarea:focus {
+            border: 3px solid $secondary-text;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #contact {
+        & form {
+            width: 80%;
+            font-size: 1.3em;
+
+            label {
+                margin-bottom: 0.3em;
+            }
+        }
+    }
+}

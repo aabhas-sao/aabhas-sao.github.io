@@ -9,7 +9,8 @@
 }
 
 $primary: rgb(241, 117, 117);
-$secondary: #f0f0f0;
+$filler: #f0f0f0;
+$secondary: rgb(238, 62, 62);
 
 nav {
     /* background-color: #f0f0f0; */
@@ -28,7 +29,7 @@ a {
 }
 
 .link-button:hover {
-    background-color: rgb(238, 62, 62);
+    background-color: $secondary;
 }
 
 .primary {
@@ -113,7 +114,6 @@ header {
 
 main {
     margin-top: 4em;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,19 +173,21 @@ main {
     align-items: center;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 600px) and (max-width: 992px) {
     #hello {
-        max-width: 80vw;
+        max-width: 95vw;
         margin: 2em auto auto auto;
-        flex-direction: column-reverse;
+        flex-direction: column-reverse !important;
         text-align: center;
-    }
-    .hero-img-container {
-        max-width: 400px;
-    }
-
-    #hello > .content {
-        padding: 0.3em;
+        
+        & > .hero-img-container {
+            width: 100vw;
+            
+        }
+    
+        & > .content {
+            padding: 0.3em;
+        }
     }
 }
 
@@ -214,14 +216,15 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-    #projects {
-        max-width: 100%;
+    
+    main {
+        #projects {
+            max-width: 100%;
+            .project {
+                max-width: 100%;
+            }
+        }
     }
-
-    .project {
-        max-width: 100%;
-    }
-
     #hello > .content {
         font-size: 0.8em;
     }

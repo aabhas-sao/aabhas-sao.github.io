@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block">
-    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/styles.scss" />
     <title>Aabhas Sao</title>
 </head>
 <body>
@@ -39,9 +39,13 @@
     </header>
 
     <main>
-        <h1 class="title2" >Projects</h1>
+        <h1 class="title2" aos="zoom-in" >Projects</h1>
         <section id='projects'>
-            <article id="project1" class='project' >
+            <article 
+                id="project1" 
+                class='project' 
+                data-aos="zoom-in"
+                >
                 <img 
                     class="portfolio-img" 
                     src='https://cdn.vox-cdn.com/thumbor/T_HeokuV-OOhnRGu37VWQu7f-Ug=/1400x788/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19721018/Tanjiro__Demon_Slayer_.png' 
@@ -61,7 +65,10 @@
                     </div>
                 </div>
             </article>
-            <article class="project" >
+            <article 
+                class="project" 
+                data-aos="zoom-in"
+            >
                 <div>
                     <img 
                         class="portfolio-img" 
@@ -96,5 +103,6 @@
             </a>
         </div>
     </main>
+    <script src="./js/index.js" ></script> 
 </body>
 </html>

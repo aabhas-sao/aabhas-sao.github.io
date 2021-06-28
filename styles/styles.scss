@@ -8,16 +8,19 @@
     scroll-behavior: smooth;
 }
 
+$primary: rgb(241, 117, 117);
+$secondary: #f0f0f0;
+
 nav {
     /* background-color: #f0f0f0; */
     height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
 
-nav li {
-    padding: 1em;
+    & li {
+        padding: 1em;
+    }
 }
 
 a {
@@ -59,14 +62,30 @@ header {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
 
-#hello {
-    flex-grow: 1;
-    margin-top: 3em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    & #hello {
+        flex-grow: 1;
+        margin-top: 3em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        &  > .content {
+            padding: 2em;
+            max-width: 600px;
+            align-self: center;
+        }
+
+        & .hero-img-container {
+            align-self: center;
+            width: 25vw;
+            
+            & > img {
+                border-radius:  1.2em;
+                margin: auto;
+            }
+         }
+    }
 }
 
 .responsive-img {
@@ -74,21 +93,6 @@ header {
     object-fit: contain;
 }
 
-.hero-img-container > img {
-    border-radius:  1.2em;
-    margin: auto;
-}
-
-.hero-img-container {
-    align-self: center;
-    width: 25vw;
-}
-
-#hello > .content {
-    padding: 2em;
-    max-width: 600px;
-    align-self: center;
-}
 
 .portfolio-img {
     width: 100%;
@@ -113,19 +117,27 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.project-content {
-    padding: 1em;
-}
-
-#projects {
-    display: flex;
-    max-width: 70vw;
-    margin: 0 auto auto auto;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    
+    & #projects {
+        display: flex;
+        max-width: 70vw;
+        margin: 0 auto auto auto;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        & .project {
+            border-radius: 4%;
+            border: 2px solid red;
+            max-width: 400px;
+            padding: 2em;
+            margin: 1em;
+            
+            & .project-content {
+                padding: 1em;
+            }
+        }
+    }
 }
 
 .link-button {
@@ -134,14 +146,6 @@ main {
     justify-content: space-between;
     padding: 0.5em;
     color: #fff;
-}
-
-.project {
-    border-radius: 4%;
-    border: 2px solid red;
-    max-width: 400px;
-    padding: 2em;
-    margin: 1em;
 }
 
 .title {

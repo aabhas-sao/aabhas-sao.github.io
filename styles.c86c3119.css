@@ -73,16 +73,10 @@ header #hello > .content {
 }
 header #hello .hero-img-container {
   align-self: center;
-  width: 25vw;
 }
 header #hello .hero-img-container > img {
   border-radius: 1.2em;
   margin: auto;
-}
-
-.responsive-img {
-  width: 100%;
-  object-fit: contain;
 }
 
 .portfolio-img {
@@ -158,7 +152,11 @@ main #projects .project .project-content {
   align-items: center;
 }
 
-@media screen and (min-width: 600px) and (max-width: 992px) {
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  header {
+    align-items: center;
+  }
+
   #hello {
     max-width: 95vw;
     margin: 2em auto auto auto;
@@ -167,6 +165,11 @@ main #projects .project .project-content {
   }
   #hello > .hero-img-container {
     width: 100vw;
+  }
+  #hello img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
   }
   #hello > .content {
     padding: 0.3em;
@@ -197,24 +200,48 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+  header #hello {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  header #hello .hero-img-container {
+    width: auto;
+  }
+  header #hello img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: auto;
+  }
+  header #hello > .content {
+    font-size: 0.8em;
+    text-align: center;
+  }
+
   main #projects {
     max-width: 100%;
   }
   main #projects .project {
     max-width: 100%;
   }
-
-  #hello > .content {
-    font-size: 0.8em;
-  }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
+  header {
+    align-items: center;
+  }
+  header #hello img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+  }
+
   #hello > .content {
     font-size: 1.4em;
   }
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
   header {
+    align-items: center;
     height: auto;
   }
 }

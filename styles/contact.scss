@@ -46,6 +46,21 @@
         textarea:focus {
             border: 3px solid $secondary-text;
         }
+
+        button {
+            margin: 1em auto auto auto;
+            border: none;
+            height: 70px;
+            border-radius: 0.4em;
+            font-size: 1em;
+            width: 50%;
+            background-color: $secondary-text;
+            color: $filler
+        }
+
+        button:hover {
+            background-color: $secondary;
+        }
     }
 }
 

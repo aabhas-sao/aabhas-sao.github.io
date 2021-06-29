@@ -1,3 +1,5 @@
+@import 'theme';
+
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +9,6 @@
     text-decoration: none;
     scroll-behavior: smooth;
 }
-
-$primary: rgb(241, 117, 117);
-$filler: #f0f0f0;
-$secondary: rgb(238, 62, 62);
 
 nav {
     /* background-color: #f0f0f0; */
@@ -25,7 +23,7 @@ nav {
 }
 
 a {
-    color: #434343;
+    color: $secondary-text;
 }
 
 .link-button:hover {
@@ -37,7 +35,7 @@ a {
 }
 
 .secondary {
-    background-color: #f0f0f0;
+    background-color: $filler;
 }
 
 .content {
@@ -45,7 +43,7 @@ a {
 }
 
 .primary-text {
-    color:rgb(241, 117, 117);
+    color:$secondary;
 }
 
 .active {
@@ -101,7 +99,7 @@ header {
 }
 
 .move-down:hover {
-    background-color: rgb(238, 62, 62);
+    background-color: $primary;
     color: #fefefe;
 }
 
@@ -121,7 +119,7 @@ main {
         
         & .project {
             border-radius: 4%;
-            border: 2px solid red;
+            border: 2px solid $primary;
             max-width: 400px;
             padding: 2em;
             margin: 1em;
@@ -138,7 +136,8 @@ main {
     flex-direction: row;
     justify-content: space-between;
     padding: 0.5em;
-    color: #fff;
+    color: $primary-text;
+    font-weight: 600;
 }
 
 .title {
@@ -149,14 +148,14 @@ main {
 .sub-title {
     margin: 0.6em 0.3em 0.3em 0;
     font-weight: 500;
-    color: #434343;
+    color: $secondary-text;
 }
 
 
 .caption {
     margin: 0.6em 0.3em 0.3em 0;
     font-weight: 400;
-    color: #434343;
+    color: $secondary-text;
     line-height: 1.4;
 }
 
@@ -199,14 +198,14 @@ main {
     right: 2em;
     bottom: 1em;
     border-radius: 18%;
-    background-color: rgb(241, 117, 117);
+    background-color: $secondary;
     color: #fefefe;
 }
 
 .move-to-top:hover {
-    border: 1px solid rgb(241, 117, 117);
+    border: 1px solid $primary;
     background-color: #fff;
-    color: #434343;
+    color: $secondary-text;
 }
 
 .move-to-top > a {

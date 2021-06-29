@@ -8,14 +8,13 @@
     justify-content: center;
     & form {
         font-size: 1.6em;
-        color: white;
+        color: $primary-text;
         display: flex;
         flex-direction: column;
         width: 40%;
         margin: auto;
 
         label {
-            margin-bottom: 0.9em;
             padding: 0.3em;
         }
         input {

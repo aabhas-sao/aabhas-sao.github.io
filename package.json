@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "rm -rf dist && mkdir dist && cp robots.txt sitemap.xml ./dist && parcel index.html",
-    "prod": "parcel build index.html && cp robots.txt sitemap.xml ./dist",
-    "deploy": "npm run prod && echo 'aabhassao.me' > ./dist/CNAME && gh-pages -d dist && cp robots.txt sitemap.xml ./dist"
+    "prod": "rm -rf dist && mkdir dist && cp robots.txt sitemap.xml ./dist && parcel build index.html && cp robots.txt sitemap.xml ./dist",
+    "deploy": "npm run prod && echo 'aabhassao.me' > ./dist/CNAME && gh-pages -d dist"
   },
   "repository": {
     "type": "git",

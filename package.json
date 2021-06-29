@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
@@ -23,6 +24,9 @@
   "devDependencies": {
     "cssnano": "^4.1.11",
     "gh-pages": "^3.2.3",
+    "imagemin": "^8.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
     "sass": "^1.35.1"
   },
   "dependencies": {

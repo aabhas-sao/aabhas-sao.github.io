@@ -109,6 +109,11 @@ main {
     flex-direction: column;
     align-items: center;
     
+    h1 {
+        font-weight: 400;
+        color: $secondary;
+    }
+    
     & #projects {
         display: flex;
         max-width: 70vw;
@@ -137,12 +142,11 @@ main {
     justify-content: space-between;
     padding: 0.5em;
     color: $primary-text;
-    font-weight: 600;
 }
 
 .title {
     margin: 0.6em 0.3em 0.3em 0;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .sub-title {

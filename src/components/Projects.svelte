@@ -5,13 +5,15 @@
       title: "Game Basket",
       image: "https://tse2.mm.bing.net/th?id=OIP.6JO0KTb4yaQ39eXnUldqWwHaEK",
       src: "https://game-basket.vercel.app/",
+      desc: "An ecommerce site built with Next.js and Firebase",
     },
     {
       id: 2,
       title: "Chase",
       image:
         "https://cdn.dribbble.com/users/1333728/screenshots/13988492/autofleet_3d_cars_dribbble.png?compress=1&resize=400x300",
-      src: "https://game-basket.vercel.app/",
+      src: "https://github.com/aabhas-sao/Project-3DXRC",
+      desc: "A 3d Racing game built with Unity Engine",
     },
   ];
 </script>
@@ -26,10 +28,7 @@
       <div class="details">
         <h2 class="title">{project.title}</h2>
         <p class="description mobile-hide mt-2">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-          earum commodi ut soluta, cupiditate ad ipsum quae culpa incidunt!
-          Voluptas suscipit dolorem accusamus soluta rerum temporibus corporis
-          quam, dolore quod!
+          {project.desc}
         </p>
         <a href={project.src}>open project</a>
       </div>

@@ -5,6 +5,7 @@ import Nav from '../components/Nav.svelte';
 import Footer from '../components/Footer.svelte';
 import Hero from '../components/Hero.svelte';
 import Projects from '../components/Projects.svelte';
+import TechStack from '../components/TechStack.svelte';
 
 // Data Fetching: List all Markdown posts in the repo.
 const projects = Astro.fetchContent('./project/**/*.md');
@@ -22,6 +23,7 @@ const featuredProject = projects[0];
     <Hero />
     <main class="wrapper mt4 mb4">
       <Projects />
+      <TechStack />
     </main>
     <Footer />
   </body>

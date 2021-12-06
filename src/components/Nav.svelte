@@ -3,7 +3,7 @@
     <div class="monogram">AS</div>
   </a>
   <a class="link" href="#projects">Projects</a>
-  <!-- <a class="link" href="/about">About</a> -->
+  <a class="link" href="#tech-stack">Stack</a>
   <a class="social" href="https://twitter.com/aabhas_sao">
     <svg
       class="socialicon"

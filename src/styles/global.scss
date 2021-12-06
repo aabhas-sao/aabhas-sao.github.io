@@ -201,10 +201,32 @@ button {
   }
 }
 
+.dead-link {
+  text-decoration: line-through;
+  color: #555;
+}
+
+.ml-1 {
+  margin-left: 1em;
+}
+
 .mt-2 {
   margin-top: 2em;
 }
 
+.mt-4 {
+  margin-top: 4em;
+}
+
 .pt-2 {
   padding-top: 2em;
+}
+
+.heading {
+  font-size: 3.5em;
+  font-family: "Sacramento", cursive;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 4.5em;
+  }
 }

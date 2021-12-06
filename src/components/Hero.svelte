@@ -42,7 +42,7 @@
 
       h1 {
         font-family: "Sacramento", cursive;
-        font-size: 2.2em;
+        font-size: 3em;
 
         @media only screen and (min-width: 1024px) {
           font-size: 6em;

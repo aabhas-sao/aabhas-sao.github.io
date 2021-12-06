@@ -66,7 +66,7 @@
 </script>
 
 <div id="projects">
-  <h1 class="pt-2 headingP">Projects</h1>
+  <h1 class="heading">Projects</h1>
   <div class="projects">
     {#each projects as project (project.id)}
       <article class="project">

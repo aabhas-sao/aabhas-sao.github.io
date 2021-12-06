@@ -225,8 +225,10 @@ button {
 .heading {
   font-size: 3.5em;
   font-family: "Sacramento", cursive;
+  text-align: left;
 
   @media screen and (min-width: 1024px) {
     font-size: 4.5em;
+    padding-top: 0.2em;
   }
 }

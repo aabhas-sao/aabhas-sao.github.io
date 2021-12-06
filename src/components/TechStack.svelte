@@ -40,7 +40,7 @@
 
 <style lang="scss">
   #tech-stack {
-    margin-top: 3em;
+    margin-top: 5em;
 
     .stack {
       display: grid;

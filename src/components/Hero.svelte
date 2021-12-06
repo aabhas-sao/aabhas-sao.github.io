@@ -13,17 +13,21 @@
       <button><a href="mailto:aabhassao0@gmail.com">Contact Me</a></button>
     </div>
   </div>
-  <img
-    class="img"
-    alt="pikachu"
-    src="https://res.cloudinary.com/aabhas/image/upload/v1638702840/pikachu.png"
-  />
+  <div class="right">
+    <img
+      class="img"
+      alt="pikachu"
+      src="https://res.cloudinary.com/aabhas/image/upload/v1638702840/pikachu.png"
+    />
+  </div>
 </div>
 
 <style lang="scss">
   .hero {
     display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     line-height: 2;
     height: 85vh;
     width: 85vw;
@@ -67,18 +71,29 @@
       text-decoration: none;
     }
 
-    .img {
-      width: 100%;
+    .right {
+      flex-direction: columns;
+      flex: 2;
+      justify-content: center;
+      .img {
+        width: 100%;
+        height: 60vh;
+        margin: auto;
+        object-fit: cover;
+        @media only screen and (min-width: 1024px) {
+          height: 50vh;
+        }
+      }
 
       @media only screen and (min-width: 1024px) {
-        width: 40vw;
-        object-fit: contain;
+        width: 60vw;
+        height: 60vh;
       }
     }
 
     @media only screen and (min-width: 1024px) {
       height: 90vh;
-      width: 70vw;
+      width: 80vw;
       flex-direction: row;
       justify-content: center;
     }

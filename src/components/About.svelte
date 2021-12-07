@@ -2,7 +2,7 @@
   <h1 class="heading mt8">About</h1>
   <div class="box">
     <div class="left">
-      <img src="../../public/assets/profile2.jpg" alt="Aabhas profile" />
+      <img src="assets/profile2.jpg" alt="Aabhas profile" />
     </div>
     <div class="right">
       <p class="description">

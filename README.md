@@ -1,24 +1,30 @@
-# Astro Starter Kit: Portfolio
+The portfolio site of Aabhas Sao.
 
-```
-npm init astro -- --template portfolio
-```
+# Tech Stack
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio-svelte)
+<div style="width:100%; display:flex; flex-direction:row;justify-content:space-evenly; text-align: center">
+    <div>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="drawing" style="width:40px;"/>
+    <p> HTML</p>
+    </div>
+    <div>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="drawing" style="width:40px;"/>
+    <p>SASS</p>
+    </div>
+    <div>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="drawing" style="width:40px;"/>
+    <p>TypeScript</p>
+    </div>
+    <div>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" alt="drawing" style="width:40px;"/>
+    <p> Svelte</p>
+    </div>
+    <div>
+    <img src="https://bestofjs.org/logos/astro.svg" alt="drawing" style="width:40px;"/>
+    <p> Astro</p>
+    </div>
+</div>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Why Astro?
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command           | Action                                       |
-|:----------------  |:-------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
+Astro is pretty cool. As a portfolio site is mostly static only some parts of the site has interactivity. The parts where interactivity is needed javascript can be enable rather than for the whole site. This makes the site a lot faster.

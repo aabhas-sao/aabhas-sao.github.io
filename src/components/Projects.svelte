@@ -188,11 +188,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-items: center;
+      gap: 0 2em;
     }
 
     @media only screen and (min-width: 1024px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 0 2em;
     }
   }
 </style>

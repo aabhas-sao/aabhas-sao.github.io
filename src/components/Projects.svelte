@@ -108,6 +108,11 @@
 </div>
 
 <style lang="scss">
+  .heading {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      margin-left: 0.65em;
+    }
+  }
   .projects {
     .project {
       display: flex;
@@ -117,11 +122,16 @@
       .left {
         width: 80vw;
         height: 25vh;
+        margin: auto;
 
         img {
           height: 100%;
           width: 100%;
           object-fit: cover;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          width: 35vw;
         }
 
         @media only screen and (min-width: 1024px) {
@@ -137,6 +147,18 @@
         .links {
           display: flex;
           flex-direction: row;
+          justify-content: space-between;
+
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          width: 100%;
+          flex-direction: column;
+          justify-content: center;
         }
 
         @media only screen and (min-width: 1024px) {
@@ -152,9 +174,20 @@
         font-size: 1.2em;
       }
 
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        align-items: center;
+        width: 35vw;
+      }
+
       @media only screen and (min-width: 1024px) {
         flex-direction: row;
       }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
     }
 
     @media only screen and (min-width: 1024px) {

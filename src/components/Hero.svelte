@@ -49,7 +49,8 @@
         font-family: "Sacramento", cursive;
         font-size: 2.6em;
 
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 768px) {
+          margin-top: 1em;
           font-size: 6em;
           line-height: 1.2;
         }
@@ -83,7 +84,7 @@
         margin: auto;
         object-fit: cover;
         @media only screen and (min-width: 1024px) {
-          height: 50vh;
+          height: 60vh;
         }
       }
 

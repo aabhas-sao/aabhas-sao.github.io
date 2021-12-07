@@ -41,11 +41,26 @@
 <style lang="scss">
   #tech-stack {
     margin-top: 5em;
+    .heading {
+      font-size: 1.9em;
+      margin: 2em 0;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        font-size: 4em;
+        margin: 1em 0;
+      }
+    }
 
     .stack {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2em 0;
+
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 4em 0;
+      }
 
       @media screen and (min-width: 1024px) {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

@@ -26,12 +26,13 @@
   .hero {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     line-height: 2;
     height: 85vh;
     width: 85vw;
     margin: auto;
+    text-align: center;
 
     .description {
       padding: 1em;
@@ -46,7 +47,7 @@
 
       h1 {
         font-family: "Sacramento", cursive;
-        font-size: 3em;
+        font-size: 2.6em;
 
         @media only screen and (min-width: 1024px) {
           font-size: 6em;
@@ -72,12 +73,13 @@
     }
 
     .right {
-      flex-direction: columns;
-      flex: 2;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: start;
+      height: 30vh;
+
       .img {
         width: 100%;
-        height: 60vh;
+        height: 100%;
         margin: auto;
         object-fit: cover;
         @media only screen and (min-width: 1024px) {
@@ -96,6 +98,7 @@
       width: 80vw;
       flex-direction: row;
       justify-content: center;
+      text-align: left;
     }
   }
 </style>

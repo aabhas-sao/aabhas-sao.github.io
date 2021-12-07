@@ -11,9 +11,6 @@
       Reach out for possible collaborations if you like my work.
     </p>
     <div class="socials">
-      <a href="tel:+919024335853">
-        <PhoneIcon class="black-icon" size={iconSize} />
-      </a>
       <a href="https://www.instagram.com/aabhas236/">
         <InstagramIcon size={iconSize} />
       </a>

@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { InstagramIcon, GithubIcon, PhoneIcon } from "svelte-feather-icons";
+  import {
+    InstagramIcon,
+    GithubIcon,
+    PhoneIcon,
+    TwitterIcon,
+  } from "svelte-feather-icons";
   const iconSize: string = "2x";
   let cnt = 0;
 </script>
@@ -11,8 +16,8 @@
       Reach out for possible collaborations if you like my work.
     </p>
     <div class="socials">
-      <a href="https://www.instagram.com/aabhas236/">
-        <InstagramIcon size={iconSize} />
+      <a href="https://www.twitter.com/aabhas_sao">
+        <TwitterIcon size={iconSize} />
       </a>
       <a href="https://github.com/aabhas-sao">
         <GithubIcon size={iconSize} />

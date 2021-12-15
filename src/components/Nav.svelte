@@ -1,23 +1,55 @@
 <script>
-  import { ChevronDownIcon, ChevronUpIcon } from "svelte-feather-icons";
+  import {
+    ChevronDownIcon,
+    ChevronUpIcon,
+    MoonIcon,
+    SunIcon,
+  } from "svelte-feather-icons";
   import { fade, blur, fly, slide, scale } from "svelte/transition";
-  import { backIn } from "svelte/easing";
-  import { flip } from "svelte/animate";
+  import { onMount } from "svelte";
 
   let current = "show";
 
   let open = false;
   const iconSize = "2x";
+  const toggleSize = "24";
 
   const toggleNav = () => {
     open = !open;
   };
+
+  let theme = "";
+  onMount(() => {
+    theme = localStorage.getItem("theme");
+  });
+
+  function toggle() {
+    window.document.body.classList.toggle("dark-theme");
+
+    let currentTheme = window.document.body.classList.contains("dark-theme")
+      ? "dark"
+      : "light";
+
+    // Finally, let's save the current preference to localStorage to keep using it
+    localStorage.setItem("theme", currentTheme);
+    theme = currentTheme;
+  }
 </script>
 
 <nav id="mobile-only">
   <a class="logolink" href="/">
-    <div class="monogram">AS</div>
+    <div class="monogram invert-black-white">AS</div>
   </a>
+  <div id="theme-circle">
+    <button id="theme-switch" on:click={toggle}>
+      {#if theme === "dark"}
+        <MoonIcon size={toggleSize} />
+      {:else}
+        <SunIcon size={toggleSize} />
+      {/if}
+    </button>
+  </div>
+
   {#if open}
     <a transition:slide class="link" href="#projects">Projects</a>
     <a transition:slide class="link" href="#tech-stack">Stack</a>
@@ -47,6 +79,7 @@
           />
         </svg>
       </a>
+
       <!-- <a transition:slide class="social" href="https://dev.to/me">
       <svg
         class="socialicon"
@@ -67,7 +100,7 @@
   {/if}
 
   <div class="mt-2">
-    <button on:click={toggleNav}>
+    <button class="invert-black-white" on:click={toggleNav}>
       {#if open}
         <ChevronUpIcon size={iconSize} />
       {:else}
@@ -79,7 +112,7 @@
 
 <nav id="lg-only">
   <a class="logolink" href="/">
-    <div class="monogram">AS</div>
+    <div class="monogram invert-black-white">AS</div>
   </a>
   <a class="link" href="#projects">Projects</a>
   <a class="link" href="#tech-stack">Stack</a>
@@ -108,6 +141,15 @@
         />
       </svg>
     </a>
+
+    <button id="theme-switch" on:click={toggle}>
+      {#if theme === "dark"}
+        <MoonIcon size={toggleSize} />
+      {:else}
+        <SunIcon size={toggleSize} />
+      {/if}
+    </button>
+
     <!-- <a class="social" href="https://dev.to/me">
       <svg
         class="socialicon"

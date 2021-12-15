@@ -188,3 +188,59 @@ button {
     font-size: 4em;
   }
 }
+
+/* Dark Mode styles */
+
+#theme-switch {
+  background-color: #fff;
+  color: var(--t-subdue);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0;
+}
+
+.dark-theme {
+  color: #eee;
+  background: #000000;
+
+  img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+  a {
+    color: #ffffff;
+  }
+
+  #theme-switch {
+    background-color: #000;
+    color: var(--t-subdue);
+  }
+
+  #theme-circle {
+    background-color: #1b1b1b;
+
+    button {
+      background-color: #1b1b1b;
+    }
+  }
+
+  .invert-black-white {
+    background-color: #000 !important;
+    color: var(--t-subdue) !important;
+  }
+}
+
+#theme-circle {
+  z-index: 1;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-color: var(--t-subdue);
+  padding: 1em;
+  border-radius: 50%;
+
+  button {
+    background-color: var(--t-subdue);
+    color: #fff;
+  }
+}

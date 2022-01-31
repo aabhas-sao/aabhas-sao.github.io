@@ -14,11 +14,7 @@
     </div>
   </div>
   <div class="right">
-    <img
-      class="img"
-      alt="pikachu"
-      src="../../public/assets/images/pikachu.webp"
-    />
+    <img class="img" alt="pikachu" src="assets/images/pikachu.webp" />
   </div>
 </div>
 

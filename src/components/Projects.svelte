@@ -75,7 +75,7 @@
         </div>
         <div class="details">
           <h2 class="title">{project.title}</h2>
-          <p class="description mobile-hide mt-2">
+          <p class="description mt-2">
             {project.desc}
           </p>
           <div class="links">
@@ -135,7 +135,7 @@
         }
 
         @media only screen and (min-width: 1024px) {
-          width: 20vw;
+          width: 10vw;
         }
       }
 
@@ -164,7 +164,7 @@
         @media only screen and (min-width: 1024px) {
           padding: 0;
           margin-left: 1em;
-          width: 20vw;
+          width: 15vw;
           flex-direction: column;
           justify-content: center;
         }

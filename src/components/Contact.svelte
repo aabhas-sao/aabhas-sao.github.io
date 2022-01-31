@@ -11,10 +11,18 @@
       Reach out for possible collaborations if you like my work.
     </p>
     <div class="socials">
-      <a class="invert-black-white" href="https://www.twitter.com/aabhas_sao">
+      <a
+        class="invert-black-white"
+        aria-label="twitter handle"
+        href="https://www.twitter.com/aabhas_sao"
+      >
         <TwitterIcon size={iconSize} />
       </a>
-      <a class="invert-black-white" href="https://github.com/aabhas-sao">
+      <a
+        class="invert-black-white"
+        aria-label="instagram handle"
+        href="https://github.com/aabhas-sao"
+      >
         <GithubIcon size={iconSize} />
       </a>
     </div>

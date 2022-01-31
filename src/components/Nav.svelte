@@ -41,7 +41,11 @@
     <div class="monogram invert-black-white">AS</div>
   </a>
   <div id="theme-circle">
-    <button id="theme-switch" on:click={toggle}>
+    <button
+      id="theme-switch"
+      aria-label="theme switch button"
+      on:click={toggle}
+    >
       {#if theme === "dark"}
         <MoonIcon size={toggleSize} />
       {:else}
@@ -102,7 +106,7 @@
   <div class="mt-2">
     <button
       class="invert-black-white"
-      name="theme switcher"
+      aria-label="See all navigation links"
       on:click={toggleNav}
     >
       {#if open}
@@ -146,7 +150,11 @@
       </svg>
     </a>
 
-    <button id="theme-switch" on:click={toggle}>
+    <button
+      id="theme-switch"
+      aria-label="theme switch button"
+      on:click={toggle}
+    >
       {#if theme === "dark"}
         <MoonIcon size={toggleSize} />
       {:else}

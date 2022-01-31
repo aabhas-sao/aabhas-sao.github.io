@@ -2,7 +2,7 @@
   <h1 class="heading mt8">About</h1>
   <div class="box">
     <div class="left">
-      <img src="assets/profile2.jpg" alt="Aabhas profile" />
+      <img src="assets/images/profile.webp" alt="Aabhas profile" />
     </div>
     <div class="right">
       <p class="description">
@@ -23,44 +23,46 @@
   }
 
   .box {
-    height: 80vh;
+    /* height: 80vh; */
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     .left {
-      height: 40vh;
+      height: 10em;
+      width: 10em;
+      margin: auto;
+
       img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        border-radius: 50%;
       }
+
       @media screen and (min-width: 1024px) {
-        width: 30vw;
-        height: 40vh;
+        width: 20em;
+        height: 20em;
       }
     }
 
     .right {
+      margin: auto;
+      text-align: center;
       margin-top: 1em;
       padding: 0.5em;
       text-align: center;
 
       @media screen and (min-width: 1024px) {
-        margin-top: 0;
-        margin-left: 1.5em;
         max-width: 40%;
         text-align: left;
 
         .description {
           font-size: 1.1em;
+          text-align: center;
         }
       }
-    }
-
-    @media screen and (min-width: 1024px) {
-      margin-top: 4em;
-      flex-direction: row;
-      justify-content: center;
     }
   }
 </style>

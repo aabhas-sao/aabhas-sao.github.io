@@ -17,7 +17,7 @@
     <img
       class="img"
       alt="pikachu"
-      src="https://res.cloudinary.com/aabhas/image/upload/v1638702840/pikachu.png"
+      src="../../public/assets/images/pikachu.webp"
     />
   </div>
 </div>

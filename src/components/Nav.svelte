@@ -100,7 +100,11 @@
   {/if}
 
   <div class="mt-2">
-    <button class="invert-black-white" on:click={toggleNav}>
+    <button
+      class="invert-black-white"
+      name="theme switcher"
+      on:click={toggleNav}
+    >
       {#if open}
         <ChevronUpIcon size={iconSize} />
       {:else}

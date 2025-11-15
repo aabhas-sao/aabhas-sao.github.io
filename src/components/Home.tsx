@@ -107,7 +107,7 @@ const Home = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                        {socialLinks.map(({ href, icon, ariaLabel, target, rel }, i) => (
+                        {socialLinks.map(({ href, icon, ariaLabel, target, rel }) => (
                             <motion.a
                                 key={ariaLabel}
                                 href={href}

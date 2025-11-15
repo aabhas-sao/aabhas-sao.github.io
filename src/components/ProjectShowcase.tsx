@@ -32,7 +32,7 @@ const ProjectShowcase = ({
     const [isPlaying, setIsPlaying] = useState(true)
     const [direction, setDirection] = useState(0)
     const videoRef = useRef<HTMLVideoElement>(null)
-    const timerRef = useRef<NodeJS.Timeout>()
+    const timerRef = useRef<NodeJS.Timeout | null>(null)
 
     const isVideoMode = !!videoUrl
     const isCarouselMode = images.length > 0 && !videoUrl

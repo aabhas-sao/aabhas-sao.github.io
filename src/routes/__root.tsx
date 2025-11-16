@@ -1,13 +1,12 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import Navbar from '@/components/Navbar'
-import Home from '@/components/Home'
+import { ThemeProvider } from '@/hooks/useTheme'
 
 export const Route = createRootRoute({
   component: () => (
-    <>
+    <ThemeProvider>
       <Navbar />
-      <Home />
       <Outlet />
-    </>
+    </ThemeProvider>
   ),
 })

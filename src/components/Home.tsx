@@ -132,8 +132,8 @@ const Home = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Latest Posts</h2>
-                    <p className="text-muted-foreground text-lg mb-12">Thoughts on development, systems and technology</p>
+                    <h2 className="text-5xl text-muted-foreground text-center md:text-5xl font-bold mb-3 tracking-tight">Latest Posts</h2>
+                    <p className="text-muted-foreground text-lg text-center mb-12">Thoughts on development, systems and technology</p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -198,60 +198,53 @@ const Home = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Projects</h2>
+                    <h2 className="text-5xl text-muted-foreground text-center md:text-5xl  font-bold mb-3 tracking-tight">Projects</h2>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                        {projects.map((project) => (
-                            <motion.div
-                                key={project.title}
-                                whileHover={{ y: -4 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <Card className="h-100 border-border/50 hover:border-border transition-all duration-300 hover:shadow-lg">
-                                    <CardHeader className="w-full flex flex-row justify-between">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    {projects.map((project) => (
+                        <motion.div
+                            key={project.title}
+                            whileHover={{ y: -4 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Card className="h-100 border-border/50 hover:border-border transition-all duration-300 hover:shadow-lg">
+                                <CardHeader className="w-full flex flex-row justify-between">
 
-                                        <CardTitle className="text-2xl">{project.title}</CardTitle>
-                                        <a
-                                            href={project.githubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center"
-                                        >
-                                            <Github size={28} strokeWidth={1.5} />
-                                        </a>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <ProjectShowcase
-                                            videoUrl={project.showcase.type === 'video' ? project.showcase.videoUrl : undefined}
-                                            images={project.showcase.type === 'image' ? project.showcase.images : []}
-                                            alt={`${project.title} showcase`}
-                                            autoPlayInterval={project.showcase?.autoPlayInterval || 3000}
-                                        />
-                                        <p className="mt-4 text-sm text-muted-foreground">{project.description}</p>
-                                    </CardContent>
-                                    <CardFooter>
-                                        <a
-                                            href={project.githubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-foreground font-medium group"
-                                        >
-                                            View Project
-                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-                                        </a>
-                                    </CardFooter>
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                                    <CardTitle className="text-2xl">{project.title}</CardTitle>
+                                    <a
+                                        href={project.githubLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center"
+                                    >
+                                        <Github size={28} strokeWidth={1.5} />
+                                    </a>
+                                </CardHeader>
+                                <CardContent>
+                                    <ProjectShowcase
+                                        videoUrl={project.showcase.type === 'video' ? project.showcase.videoUrl : undefined}
+                                        images={project.showcase.type === 'image' ? project.showcase.images : []}
+                                        alt={`${project.title} showcase`}
+                                        autoPlayInterval={project.showcase?.autoPlayInterval || 3000}
+                                    />
+                                    <p className="mt-4 text-sm text-muted-foreground">{project.description}</p>
+                                </CardContent>
+                                <CardFooter>
+                                    <a
+                                        href={project.githubLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-foreground font-medium group"
+                                    >
+                                        View Project
+                                        <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                    </a>
+                                </CardFooter>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </div>
             </section>
         </div>
     )

@@ -1,9 +1,11 @@
 import { motion, useScroll, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Home, FileText, Briefcase, Mail, Menu, X } from "lucide-react"
+import { Home, FileText, Briefcase, Mail, Menu, X, Moon, Sun } from "lucide-react"
+import { useTheme } from "@/hooks/useTheme"
 
 const Navbar = () => {
   const { scrollY } = useScroll()
+  const { theme, toggleTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -75,7 +77,7 @@ const Navbar = () => {
         }}
       >
         <motion.div
-          className={`mt-4 overflow-hidden ${isMinimized
+          className={`mt-4 overflow-hidden flex items-center ${isMinimized
             ? "bg-background/40 backdrop-blur-lg border border-border/30 shadow-xl shadow-black/10"
             : isScrolled
               ? "bg-background/30 backdrop-blur-md border border-border/20 shadow-lg shadow-black/5"
@@ -83,8 +85,7 @@ const Navbar = () => {
             }`}
           animate={{
             borderRadius: isMinimized ? "999px" : "16px", // Pill shape when minimized
-            paddingTop: isMinimized ? "0.75rem" : isScrolled ? "0.75rem" : "1rem",
-            paddingBottom: isMinimized ? "0.75rem" : isScrolled ? "0.75rem" : "1rem",
+            height: "56px", // Fixed height to prevent jitter
             paddingLeft: isMinimized ? "1.5rem" : "1.5rem",
             paddingRight: isMinimized ? "1.5rem" : "1.5rem",
           }}
@@ -97,11 +98,11 @@ const Navbar = () => {
             {!isMinimized ? (
               <motion.div
                 key="full-nav"
-                className="flex items-center justify-between px-6"
+                className="flex items-center justify-between px-6 w-full"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.15 }} // Fast fade
               >
                 {/* Logo/Name */}
                 <motion.a
@@ -129,56 +130,128 @@ const Navbar = () => {
                       {item.label}
                     </motion.a>
                   ))}
+
+                  {/* Theme Toggle Button */}
+                  <motion.button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                    whileHover={{ scale: 1.05, rotate: 180 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: navItems.length * 0.1 }}
+                    aria-label="Toggle theme"
+                  >
+                    <AnimatePresence mode="wait">
+                      {theme === 'dark' ? (
+                        <motion.div
+                          key="sun"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Sun size={20} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="moon"
+                          initial={{ rotate: 90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: -90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Moon size={20} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <motion.button
-                  className="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <AnimatePresence mode="wait">
-                    {isExpanded ? (
-                      <motion.div
-                        key="close"
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <X size={24} />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="menu"
-                        initial={{ rotate: 90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: -90, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Menu size={24} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.button>
+                {/* Mobile Menu Button & Theme Toggle */}
+                <div className="md:hidden flex items-center gap-2">
+                  {/* Theme Toggle for Mobile */}
+                  <motion.button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    aria-label="Toggle theme"
+                  >
+                    <AnimatePresence mode="wait">
+                      {theme === 'dark' ? (
+                        <motion.div
+                          key="sun"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Sun size={20} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="moon"
+                          initial={{ rotate: 90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: -90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Moon size={20} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+
+                  {/* Mobile Menu Button */}
+                  <motion.button
+                    className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <AnimatePresence mode="wait">
+                      {isExpanded ? (
+                        <motion.div
+                          key="close"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <X size={24} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="menu"
+                          initial={{ rotate: 90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: -90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Menu size={24} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+                </div>
               </motion.div>
             ) : (
               <motion.button
                 key="minimized-nav"
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-5 justify-between w-full"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-3 justify-between w-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.3 } }}
+                exit={{ opacity: 0, transition: { duration: 0.15 } }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-base font-bold tracking-tight whitespace-nowrap">Aabhas Sao</span>
+                <span className="text-sm font-bold tracking-tight whitespace-nowrap">Aabhas Sao</span>
                 <motion.div
                   animate={{ rotate: isExpanded ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
+                  className="shrink-0"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-foreground">
                     <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

@@ -1,9 +1,10 @@
 import { fetchPosts } from "@/lib/utils"
 import { useEffect, useState } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Linkedin, Mail, Github } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import ProjectShowcase from "./ProjectShowcase"
+import { Button } from "@/components/ui/button"
 
 const socialLinks = [
     {
@@ -26,6 +27,24 @@ const socialLinks = [
         rel: "noopener noreferrer"
     }
 ]
+
+const tagColors = [
+    "bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300",
+    "bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300",
+    "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300",
+    "bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
+    "bg-pink-100 text-pink-700 dark:bg-pink-950 dark:text-pink-300",
+    "bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-300",
+    "bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-300",
+    "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300",
+]
+
+const getTagColor = (tag: string) => {
+    const hash = tag.split('').reduce((acc, char) => {
+        return char.charCodeAt(0) + ((acc << 5) - acc)
+    }, 0)
+    return tagColors[Math.abs(hash) % tagColors.length]
+}
 
 const projects = [
     {
@@ -77,7 +96,7 @@ const Home = () => {
             <motion.section
                 id="home"
                 data-hero-section
-                className="min-h-[85vh] flex flex-col items-center justify-center py-20 mb-16"
+                className="min-h-[85vh] flex flex-col items-center justify-center py-20 mb-16 scroll-mt-20"
                 style={{ opacity, scale }}
             >
                 <motion.div
@@ -91,14 +110,14 @@ const Home = () => {
                     </h1>
 
                     <motion.p
-                        className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed"
+                        className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
                         SWE I @ Candescent | Full Stack Developer
                         <br />
-                        <span className="text-lg md:text-xl">Learning to build systems that scale</span>
+                        <span className="text-md md:text-xl">Learning to build systems that scale</span>
                     </motion.p>
 
                     <motion.div
@@ -112,7 +131,7 @@ const Home = () => {
                                 key={ariaLabel}
                                 href={href}
                                 aria-label={ariaLabel}
-                                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                                className="text-red-400 hover:text-foreground transition-colors duration-300"
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 {...(target ? { target } : {})}
@@ -124,74 +143,136 @@ const Home = () => {
                     </motion.div>
                 </motion.div>
             </motion.section>
-            {/* Latest Posts Section */}
-            <section className="mb-24">
+            {/* Latest Posts Section - Personal Journal Style */}
+            <section id="posts" className="mb-24 scroll-mt-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-12 relative"
                 >
-                    <h2 className="text-5xl text-muted-foreground text-center md:text-5xl font-bold mb-3 tracking-tight">Latest Posts</h2>
-                    <p className="text-muted-foreground text-lg text-center mb-12">Thoughts on development, systems and technology</p>
+                    <div className="text-center">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight text-foreground relative inline-block">
+                            My Journal Entries
+                            {/* Handwritten-style underline */}
+                            <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" preserveAspectRatio="none">
+                                <path d="M5,7 Q75,3 150,5 T295,7" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-foreground/30" strokeLinecap="round" />
+                            </svg>
+                        </h2>
+                        <p className="text-muted-foreground mt-4 italic">~ where I scribble my thoughts on code and tech ~</p>
+                    </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                    {posts.slice(0, isMobile ? 5 : 9).map((post: any, index: number) => (
-                        <motion.div
-                            key={post.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{
-                                delay: Math.min(index * 0.08, 0.3),
-                                duration: 0.5,
-                                ease: [0.16, 1, 0.3, 1]
-                            }}
-                        >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    {posts.slice(0, isMobile ? 5 : 9).map((post: any, index: number) => {
+                        // Slight rotation for that "slightly messy" journal feel
+                        const rotations = ['-rotate-1', 'rotate-0', 'rotate-1', '-rotate-0.5', 'rotate-0.5']
+                        const randomRotation = rotations[index % rotations.length]
+
+                        return (
                             <motion.div
-                                whileHover={{ y: -4 }}
-                                transition={{ duration: 0.2 }}
+                                key={post.id}
+                                initial={{ opacity: 0, y: 20, rotate: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{
+                                    delay: Math.min(index * 0.08, 0.3),
+                                    duration: 0.5,
+                                    ease: [0.16, 1, 0.3, 1]
+                                }}
                                 className="h-full"
                             >
-                                <Card className="border-border/50 hover:border-border transition-all duration-300 hover:shadow-lg h-full flex flex-col">
-                                    <CardHeader>
-                                        <CardTitle className="text-xl md:text-2xl line-clamp-2">{post.title}</CardTitle>
-                                        <CardDescription className="text-sm md:text-base mt-2 line-clamp-3">{post.description}</CardDescription>
-                                    </CardHeader>
-                                    <CardContent className="mt-auto">
-                                        <div className="flex items-center gap-2 mb-4 flex-wrap">
-                                            {post.tag_list.slice(0, 3).map((tag: string) => (
-                                                <span
-                                                    key={tag}
-                                                    className="bg-muted/50 rounded-full px-3 py-1 text-xs font-medium"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
+                                <motion.div
+                                    whileHover={{ y: -6, rotate: 0, scale: 1.02 }}
+                                    transition={{ duration: 0.3, ease: "easeOut" }}
+                                    className={`h-full ${randomRotation}`}
+                                >
+                                    {/* Journal page/card */}
+                                    <div className="bg-card border-2 border-foreground/10 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col relative overflow-hidden">
+                                        {/* Decorative corner fold */}
+                                        <div className="absolute top-0 right-0 w-0 h-0 border-l-20 border-l-transparent border-t-20 border-t-foreground/5"></div>
+
+                                        {/* Date stamp - journal style */}
+                                        <div className="flex items-center justify-between mb-4">
+                                            <time className="text-xs font-semibold text-muted-foreground/80 bg-foreground/5 px-3 py-1 rounded-full">
+                                                {new Date(post.published_at).toLocaleDateString('en-US', {
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                    year: 'numeric'
+                                                })}
+                                            </time>
+                                            {/* Little decorative heart or star */}
+                                            <span className="text-lg opacity-40">✦</span>
+                                        </div>
+
+                                        {/* Colorful tags - like stickers on a journal */}
+                                        <div className="flex items-center gap-2 flex-wrap mb-4">
+                                            {post.tag_list.slice(0, 3).map((tag: string, tagIndex: number) => {
+                                                const tagRotations = ['rotate-[-2deg]', 'rotate-[1deg]', 'rotate-[-1deg]']
+                                                return (
+                                                    <span
+                                                        key={tag}
+                                                        className={`rounded-full px-3 py-1 text-xs font-bold ${getTagColor(tag)} shadow-sm ${tagRotations[tagIndex % tagRotations.length]} transition-transform hover:scale-110`}
+                                                    >
+                                                        #{tag}
+                                                    </span>
+                                                )
+                                            })}
                                             {post.tag_list.length > 3 && (
-                                                <span className="text-xs text-muted-foreground">+{post.tag_list.length - 3}</span>
+                                                <span className="text-xs text-muted-foreground italic">+{post.tag_list.length - 3} more</span>
                                             )}
                                         </div>
+
+                                        {/* Entry title - handwritten feel */}
+                                        <h3 className="text-xl md:text-2xl font-bold leading-snug mb-3 line-clamp-3 text-foreground">
+                                            {post.title}
+                                        </h3>
+
+                                        {/* Entry content - journal excerpt */}
+                                        <p className="text-sm leading-relaxed text-foreground/70 mb-4 line-clamp-4 grow italic">
+                                            "{post.description}"
+                                        </p>
+
+                                        {/* Doodle-style divider */}
+                                        <div className="border-t-2 border-dotted border-foreground/10 my-3"></div>
+
+                                        {/* Read more - casual style */}
                                         <a
                                             href={post.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-foreground font-medium group"
+                                            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/80 hover:text-foreground transition-colors group"
                                         >
-                                            Read More
+                                            <span className="underline decoration-2 decoration-foreground/30 group-hover:decoration-foreground/60 underline-offset-4">
+                                                Read my full thoughts
+                                            </span>
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                         </a>
-                                    </CardContent>
-                                </Card>
+                                    </div>
+                                </motion.div>
                             </motion.div>
-                        </motion.div>
-                    ))}
+                        )
+                    })}
                 </div>
+
+                {/* Decorative journal quote */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="mt-16 text-center text-muted-foreground italic text-sm"
+                >
+                    <p className="flex items-center justify-center gap-2">
+                        <span className="text-lg">✧</span>
+                        Each entry is a step in my learning journey
+                        <span className="text-lg">✧</span>
+                    </p>
+                </motion.div>
             </section>
 
             {/* Projects Section */}
-            <section className="mb-24">
+            <section id="projects" className="mb-24 scroll-mt-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -231,15 +312,17 @@ const Home = () => {
                                     <p className="mt-4 text-sm text-muted-foreground">{project.description}</p>
                                 </CardContent>
                                 <CardFooter>
-                                    <a
-                                        href={project.githubLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 text-foreground font-medium group"
-                                    >
-                                        View Project
-                                        <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-                                    </a>
+                                    <Button variant="outline" className="w-full">
+                                        <a
+                                            href={project.projectLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-bold inline-flex items-center gap-2 text-foreground group"
+                                        >
+                                            View Project
+                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                        </a>
+                                    </Button>
                                 </CardFooter>
                             </Card>
                         </motion.div>

@@ -1,6 +1,6 @@
 import { motion, useScroll, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Home, FileText, Briefcase, Mail, Menu, X, Moon, Sun } from "lucide-react"
+import { Home, FileText, Briefcase, Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "@/hooks/useTheme"
 
 const Navbar = () => {
@@ -53,11 +53,34 @@ const Navbar = () => {
   }, [isMobile])
 
   const navItems = [
-    { label: "Home", href: "/", icon: Home },
+    { label: "Home", href: "#home", icon: Home },
     { label: "Posts", href: "#posts", icon: FileText },
     { label: "Projects", href: "#projects", icon: Briefcase },
-    { label: "Contact", href: "#contact", icon: Mail },
   ]
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+
+    if (element) {
+      // Close expanded menu first
+      setIsExpanded(false)
+
+      // Use a small timeout to let menu close, then scroll
+      setTimeout(() => {
+        const navbarHeight = 100
+        const elementTop = element.getBoundingClientRect().top + window.scrollY
+
+        window.scrollTo({
+          top: elementTop - navbarHeight,
+          behavior: 'smooth'
+        })
+      }, 100)
+    }
+  }
 
   return (
     <motion.nav
@@ -120,7 +143,8 @@ const Navbar = () => {
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      className="relative px-4 py-2 text-sm md:text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg"
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className="relative px-4 py-2 text-sm md:text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg cursor-pointer"
                       whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
                       whileTap={{ scale: 0.96 }}
                       initial={{ opacity: 0, y: -20 }}
@@ -279,11 +303,14 @@ const Navbar = () => {
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl hover:bg-muted/50 transition-all duration-200 group"
+                      className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl hover:bg-muted/50 transition-all duration-200 group cursor-pointer"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05, duration: 0.2 }}
-                      onClick={() => setIsExpanded(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, item.href)
+                        setIsExpanded(false)
+                      }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -320,11 +347,14 @@ const Navbar = () => {
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl hover:bg-muted/50 transition-all duration-200 group"
+                      className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl hover:bg-muted/50 transition-all duration-200 group cursor-pointer"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05, duration: 0.2 }}
-                      onClick={() => setIsExpanded(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, item.href)
+                        setIsExpanded(false)
+                      }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
